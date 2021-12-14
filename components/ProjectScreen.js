@@ -11,9 +11,9 @@ import { db } from '../firebase';
 const ProjectScreen=({ route, navigation })=>{
     const [k, setK] = useState(0);
     const GetData = async () => {
-        const projectCol = collection(db, 'project'+taskID);
-        const projectSnapshot = await getDocs(projectCol);
-        const projectList = projectSnapshot.docs.map(doc => doc.data());
+    const projectCol = collection(db, 'project'+taskID);
+    const projectSnapshot = await getDocs(projectCol);
+    const projectList = projectSnapshot.docs.map(doc => doc.data());
 
         console.log(projectList);
 
@@ -31,42 +31,13 @@ const ProjectScreen=({ route, navigation })=>{
 
     });
     
-    const handleAddTask =async ()=>{
+    const handleAddTask = async ()=>{
         Keyboard.dismiss();
-        setK(k+1);
-        
-        //switch (taskID){
-            //case 0:
-                setArray0([...array0, task]);
-                console.log(taskArray);
-                await setDoc(doc(db, 'project'+taskID, 'Id0000'+k), {
-                    task: task,
-                });
-                //break;
-            /*case 1:
-                setArray1([...array1, task]);
-                break;
-            case 2:
-                setArray2([...array2, task]);
-                break;
-            case 3:
-                setArray3([...array3, task]);
-                break;
-            case 4:
-                setArray4([...array4, task]);
-                break;
-            case 5:
-                setArray5([...array5, task]);
-                break;
-            case 6:
-                setArray6([...array6, task]);
-                console.log(array6)
-                break;
-            case 7:
-                setArray7([...array7, task]);
-                break;*/
-            
-            
+        setK(k+1);                  
+        console.log(taskArray);
+        await setDoc(doc(db, 'project'+taskID, 'Id0000'+k), {
+        task: task,
+        });
         
         setTask(null);
         
